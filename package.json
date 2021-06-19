@@ -1,0 +1,11 @@
+{
+  "name": "project-email-subscriber",
+  "version": "1.0.0",
+  "description": "testing or practice purpose. To see how to connect node.js with mysql",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Salman Farshe",
+  "license": "ISC"
+}
