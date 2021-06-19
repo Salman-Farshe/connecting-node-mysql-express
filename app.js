@@ -46,20 +46,39 @@ connection.query(total_Count, function(error, results, fields){
 /* 
     To insert data into the database using node.js:
 */
-let insert_data = "INSERT INTO USERS(email) VALUES('salmanfarshe@gmail.com'),('farshesalman@gmail.com')";
-connection.query(insert_data, function(error, results, fields){
-    if(error) throw error;
-    console.log(results);
-});
+// let insert_data = "INSERT INTO USERS(email) VALUES('salmanfarshe@gmail.com'),('farshesalman@gmail.com')";
+// connection.query(insert_data, function(error, results, fields){
+//     if(error) throw error;
+//     console.log(results);
+// });
 
 
 /*
     Inserting data part 2:
 */
 let person = {
-    email: faker.internet.email()
+    email: faker.internet.email(),   // fake email data
+    created_at: faker.date.past()
 };
 connection.query('INSERT INTO USERS SET ?', person, function(error, results, fields){
+    if(error) throw error;
+    console.log(results);
+});
+
+
+/* 
+    Inserting 5000 data part 3:
+*/
+let data = [];
+for(let i = 0; i <= 500; i++){
+    data.push([
+        faker.internet.email(), 
+        faker.date.past()
+    ]);
+}
+
+let data_query = 'INSERT INTO USERS(email, created_at) VALUES ?';
+connection.query(data_query, [data], function(error, results, fields){
     if(error) throw error;
     console.log(results);
 });
