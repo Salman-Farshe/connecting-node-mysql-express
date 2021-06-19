@@ -32,4 +32,36 @@ connection.query(q, function (error, results, fields) {
     console.log(results[0].now);
 });
 
+
+/*
+    To count the number of users in the database:
+*/
+const total_Count = 'SELECT COUNT(*) AS total FROM USERS';
+connection.query(total_Count, function(error, results, fields){
+    if(error) throw error;
+    console.log(results[0].total);
+});
+
+
+/* 
+    To insert data into the database using node.js:
+*/
+let insert_data = "INSERT INTO USERS(email) VALUES('salmanfarshe@gmail.com'),('farshesalman@gmail.com')";
+connection.query(insert_data, function(error, results, fields){
+    if(error) throw error;
+    console.log(results);
+});
+
+
+/*
+    Inserting data part 2:
+*/
+let person = {
+    email: faker.internet.email()
+};
+connection.query('INSERT INTO USERS SET ?', person, function(error, results, fields){
+    if(error) throw error;
+    console.log(results);
+});
+
 connection.end();
