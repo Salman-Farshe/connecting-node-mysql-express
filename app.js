@@ -86,6 +86,7 @@ connection.query(data_query, [data], function(error, results, fields){
 
 // express
 let express = require('express');
+const { response } = require('express');
 let app = express();
 
 app.get("/", function(req, res){
@@ -93,9 +94,21 @@ app.get("/", function(req, res){
     res.send("welcome to home page");
 });
 
+app.get("/users", function(req, res){
+    // find total users in database
+    let total = "SELECT COUNT(*) AS count FROM USERS";
+    connection.query(total, function(error, results, fields){
+        if(error) throw error;
+        let t = results[0].count;
+        // respond with that number
+        res.send("We have total  " + t + "  users");
+    });
+});
+
+
 app.listen(5500, function(){
     console.log('server starting at 5500');
 });
 
 
-connection.end();
+//connection.end();
