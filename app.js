@@ -131,3 +131,7 @@ app.post("/register", function(req, res){
         res.send("Thank You");
     });
 })
+
+
+// connecting css
+app.use(express.static(__dirname + "/css")); // just actual directory name

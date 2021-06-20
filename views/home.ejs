@@ -1,10 +1,16 @@
 <!-- our html code -->
-<h1>JOIN US</h1>
-
-<p class="lead">Enter your email to join <strong> <%= data %> </strong> 
-others on our waitlist. We are 100% not a cult. </p>
-
-<form method="POST" action='/register'>
-    <input type="text" name="email" class="form" placeholder="Enter Your Email">
-    <button>Join Now</button>
-</form>
+<head>
+    <link rel="stylesheet" href="/app.css">  
+    <!-- use direct file name... directory name dont need. it will added automatically -->
+</head>
+<body>
+    <h1>JOIN US</h1>
+    
+    <p class="lead">Enter your email to join <strong> <%= data %> </strong> 
+    others on our waitlist. We are 100% not a cult. </p>
+    
+    <form method="POST" action='/register'>
+        <input type="text" name="email" class="form" placeholder="Enter Your Email">
+        <button>Join Now</button>
+    </form>
+</body>
