@@ -9,6 +9,7 @@
   "author": "Salman Farshe",
   "license": "ISC",
   "devDependencies": {
+    "express": "^4.17.1",
     "faker": "^5.5.3",
     "mysql2": "^2.2.5"
   }

@@ -83,4 +83,19 @@ connection.query(data_query, [data], function(error, results, fields){
     console.log(results);
 });
 
+
+// express
+let express = require('express');
+let app = express();
+
+app.get("/", function(req, res){
+    console.log(req); // to see clients all data
+    res.send("welcome to home page");
+});
+
+app.listen(5500, function(){
+    console.log('server starting at 5500');
+});
+
+
 connection.end();
