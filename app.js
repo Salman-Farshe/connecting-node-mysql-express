@@ -101,7 +101,10 @@ app.get("/users", function(req, res){
         if(error) throw error;
         let t = results[0].count;
         // respond with that number
-        res.send("We have total  " + t + "  users");
+        //res.send("We have total  " + t + "  users");
+
+        // for ejs
+        res.render("home", {data: t}); // javascript object {key: value}, for using in home.ejs. total count
     });
 });
 
@@ -110,5 +113,5 @@ app.listen(5500, function(){
     console.log('server starting at 5500');
 });
 
-
+app.set("view engine", "ejs");
 //connection.end();
