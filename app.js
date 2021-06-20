@@ -115,3 +115,19 @@ app.listen(5500, function(){
 
 app.set("view engine", "ejs");
 //connection.end();
+
+let bodyParser  = require("body-parser");
+app.use(bodyParser.urlencoded({extended: true})); // allows us to extract info form form
+
+app.post("/register", function(req, res){
+   // console.log("Your email is :  " + req.body.email);
+   //let email = req.body.email;
+
+   let person = {
+       email: req.body.email
+   };
+    connection.query('INSERT INTO USERS SET ?', person, function(error, results, fields){
+        if(error) throw error;
+        res.send("Thank You");
+    });
+})
